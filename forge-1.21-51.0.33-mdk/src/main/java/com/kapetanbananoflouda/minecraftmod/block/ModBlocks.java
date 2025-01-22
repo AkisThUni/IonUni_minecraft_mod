@@ -24,7 +24,7 @@ public class ModBlocks {
     // This is how to create blocks!
     public static final RegistryObject<Block> CAT_BLOCK = registerBlock("cat_block",
             ()-> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
+                    .strength(1f).sound(SoundType.ANVIL)));
 
 
 
