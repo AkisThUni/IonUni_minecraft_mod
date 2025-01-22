@@ -1,5 +1,6 @@
 package com.kapetanbananoflouda.minecraftmod;
 
+import com.kapetanbananoflouda.minecraftmod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -34,7 +35,7 @@ import org.slf4j.Logger;
 public class MinecraftMod
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "unigamblingmod";
+    public static final String MOD_ID = "uniminecraftmod";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
@@ -78,6 +79,9 @@ public class MinecraftMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModItems.register(modEventBus);
+
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -101,8 +105,8 @@ public class MinecraftMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+            event.accept(ModItems.TOAST);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
