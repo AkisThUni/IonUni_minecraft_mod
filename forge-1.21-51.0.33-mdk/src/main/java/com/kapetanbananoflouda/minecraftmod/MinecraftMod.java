@@ -2,6 +2,7 @@ package com.kapetanbananoflouda.minecraftmod;
 //ebala sxolio
 
 import com.kapetanbananoflouda.minecraftmod.block.ModBlocks;
+import com.kapetanbananoflouda.minecraftmod.items.ModCreativeModeTabs;
 import com.kapetanbananoflouda.minecraftmod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -80,6 +81,9 @@ public class MinecraftMod
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+
+        ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);

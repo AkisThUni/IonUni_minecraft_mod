@@ -1,5 +1,9 @@
 {
   "item.uniminecraftmod.toast": "toast :3",
 
-  "block.uniminecraftmod.cat_block": "Cat stare.wav"
+  "block.uniminecraftmod.cat_block": "Cat stare.wav",
+
+  "creativetab.uniminecraftmod.numerology_items": "Numerology Items",
+
+  "creativetab.uniminecraftmod.numerology_blocks": "Numerology Blocks"
 }
