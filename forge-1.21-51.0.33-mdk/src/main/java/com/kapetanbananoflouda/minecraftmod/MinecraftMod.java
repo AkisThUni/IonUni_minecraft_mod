@@ -1,6 +1,7 @@
 package com.kapetanbananoflouda.minecraftmod;
 //ebala sxolio
 
+import com.kapetanbananoflouda.minecraftmod.block.ModBlocks;
 import com.kapetanbananoflouda.minecraftmod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -81,6 +82,7 @@ public class MinecraftMod
         MinecraftForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
 
         // Register the item to a creative tab
@@ -106,8 +108,13 @@ public class MinecraftMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.TOAST);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(ModBlocks.CAT_BLOCK);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
