@@ -25,6 +25,8 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.uniminecraftmod.numerology_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.TOAST.get());
+                        output.accept(ModItems.CLOVER.get());
+                        output.accept(ModItems.CRISP_CLOVER.get());
 
 
                     }).build());
