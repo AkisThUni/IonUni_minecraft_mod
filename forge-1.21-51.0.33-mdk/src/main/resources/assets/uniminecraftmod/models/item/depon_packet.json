@@ -1,0 +1,7 @@
+{
+
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "uniminecraftmod:item/depon_packet"
+  }
+}

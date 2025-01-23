@@ -27,11 +27,21 @@ public class ModBlocks {
                     .strength(1f).sound(SoundType.ANVIL)));
 
 
+    //gon write the blocks here
+    //required loot table to drop anything
+    public static final RegistryObject<Block> DEPON_BLOCK = registerBlock("depon_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(1f).requiresCorrectToolForDrops().sound(SoundType.GRASS)));
+
+
+    public static final RegistryObject<Block> XANAX_BLOCK = registerBlock( "xanax_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3f).requiresCorrectToolForDrops()));
 
 
 
-
-
+    //2 helper methods
+    //1st for block item to assosciate with the block we register
     private static  <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

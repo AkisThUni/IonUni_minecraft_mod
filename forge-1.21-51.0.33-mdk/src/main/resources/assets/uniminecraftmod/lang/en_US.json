@@ -6,6 +6,13 @@
   "creativetab.uniminecraftmod.numerology_items": "Numerology Items",
 
   "creativetab.uniminecraftmod.numerology_blocks": "Numerology Blocks",
+  "creativetab.uniminecraftmod.medication_items": "medication items",
+  "creativetab.uniminecraftmod.medication_blocks": "medication blocks",
 
-  "item.uniminecraftmod.number_generator": "lucky number generator"
+  "item.uniminecraftmod.number_generator": "lucky number generator",
+  "item.uniminecraftmod.depon_packet" : "Depon Packet",
+  "item.uniminecraftmod.xanax_packet" : "Xanax packet",
+
+  "block.uniminecraftmod.depon_block": "Box of Depon packets",
+  "block.uniminecraftmod.xanax_block": "Box of Xanax packets"
 }
