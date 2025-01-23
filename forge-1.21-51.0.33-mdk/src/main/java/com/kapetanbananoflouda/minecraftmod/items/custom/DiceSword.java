@@ -46,7 +46,7 @@ public class DiceSword extends SwordItem {
             if(number == 20) //critical success
             {
                 //adds strength )20 ticks = 1 sec
-                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_TWINKLE, SoundSource.PLAYERS, 1.0F, 1.0F);
+                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LARGE_BLAST, SoundSource.PLAYERS, 1.0F, 1.0F);
                 pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 9));  //+9 for strength 10
                 pPlayer.sendSystemMessage(Component.literal("\nGREAT SUCCESS\n"));
 
