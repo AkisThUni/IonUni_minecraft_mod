@@ -12,6 +12,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
+import com.kapetanbananoflouda.minecraftmod.items.custom.NumberItem;
+
 public class ModCreativeModeTabs {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -25,6 +27,8 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.uniminecraftmod.numerology_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.TOAST.get());
+                        output.accept(ModItems.NUMBER_ITEM.get());
+
 
 
                     }).build());
