@@ -30,6 +30,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.NUMBER_ITEM.get());
                         output.accept(ModItems.DEPON_PACKET.get());
                         output.accept(ModItems.XANAX_PACKET.get());
+                        output.accept(ModItems.DICE_BLADE.get());
 
 
 
@@ -55,6 +56,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.DEPON_PACKET.get());
                         output.accept(ModItems.XANAX_PACKET.get());
+
 
 
 

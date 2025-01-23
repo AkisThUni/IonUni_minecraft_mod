@@ -24,19 +24,19 @@ public class ModBlocks {
     // This is how to create blocks!
     public static final RegistryObject<Block> CAT_BLOCK = registerBlock("cat_block",
             ()-> new Block(BlockBehaviour.Properties.of()
-                    .strength(1f).sound(SoundType.ANVIL)));
+                    .strength(1f).requiresCorrectToolForDrops().sound(SoundType.ANVIL)));
 
 
     //gon write the blocks here
     //required loot table to drop anything
     public static final RegistryObject<Block> DEPON_BLOCK = registerBlock("depon_block",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(1f).requiresCorrectToolForDrops().sound(SoundType.GRASS)));
+                    .strength(1f).sound(SoundType.GRASS)));
 
 
     public static final RegistryObject<Block> XANAX_BLOCK = registerBlock( "xanax_block",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(3f).requiresCorrectToolForDrops()));
+                    .strength(1f)));
 
 
 

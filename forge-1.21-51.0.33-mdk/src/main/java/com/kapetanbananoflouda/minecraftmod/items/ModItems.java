@@ -1,15 +1,19 @@
 package com.kapetanbananoflouda.minecraftmod.items;
 //import num item
-import com.kapetanbananoflouda.minecraftmod.items.custom.NumberItem;
+import com.kapetanbananoflouda.minecraftmod.items.custom.*; //import all the custom items
 import com.kapetanbananoflouda.minecraftmod.MinecraftMod;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -29,17 +33,29 @@ public class ModItems {
     //bazo depon kai xanax
     //register the item (kane ayto gia kathe item)
     public static final RegistryObject<Item> DEPON_PACKET = ITEMS.register("depon_packet", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-            .nutrition(6) // Hunger restored (6 = 3 meat drumsticks)
+            .nutrition(1) // Hunger restored (6 = 3 meat drumsticks)
             .saturationModifier(0.6F) // Saturation modifier (how long the hunger lasts)
             .alwaysEdible() // Allows eating even if the player is full
             .build())) );
 
     public static final RegistryObject<Item> XANAX_PACKET = ITEMS.register("xanax_packet", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-            .nutrition(6) // Hunger restored (6 = 3 meat drumsticks)
+            .nutrition(1) // Hunger restored (6 = 3 meat drumsticks)
             .saturationModifier(0.6F) // Saturation modifier (how long the hunger lasts)
             .alwaysEdible() // Allows eating even if the player is full
             .effect(new MobEffectInstance(MobEffects.POISON, 150, 3),1f)
             .build())) );
+
+
+    //DICE BLADE GO WOOOOOO (definetely bot gambling)
+    public static final RegistryObject<Item> DICE_BLADE = ITEMS.register("dice_blade",
+            () -> new DiceSword(
+                    Mod_Tiers.DICE_TIER,//base tier (base stats)
+
+                    new Item.Properties()   //give sword atributes on top of dice tier ones
+                            .attributes(SwordItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
+
+
+            ));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
