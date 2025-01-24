@@ -56,7 +56,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.DEPON_PACKET.get());
                         output.accept(ModItems.XANAX_PACKET.get());
-
+                        output.accept(ModItems.DICE_BLADE.get());
 
 
 
