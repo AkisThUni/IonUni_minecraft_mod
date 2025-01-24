@@ -42,83 +42,55 @@ public class DiceSword extends SwordItem {
 
             pPlayer.sendSystemMessage(Component.literal("You used the Dice blade!\nYour lucky number is: "+number));
 
+            switch (number){
+                case 20: //critical success
+                    //adds strength )20 ticks = 1 sec
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.PLAYERS, 1.0F, 1.0F);
 
-            if(number == 20) //critical success
-            {
-                //adds strength )20 ticks = 1 sec
-                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LARGE_BLAST, SoundSource.PLAYERS, 1.0F, 1.0F);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 9));  //+9 for strength 10
-                pPlayer.sendSystemMessage(Component.literal("\nGREAT SUCCESS\n"));
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_TWINKLE, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 9));  //+9 for strength 10
+                    pPlayer.sendSystemMessage(Component.literal("\nGREAT SUCCESS\n"));
+                    break;
 
-                return super.use(pLevel, pPlayer, pUsedHand);
+                case 19,18,17,16:
+                    //fire res,absorption,regeneration
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_TWINKLE_FAR, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 9));  //+9 for strength 10
+                    pPlayer.sendSystemMessage(Component.literal("\nNICE\n"));
+                    break;
+
+                case 15,14,13,12,11:
+                    //speed-haste-night vision-conduit power-water breathing
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0));
+                    pPlayer.sendSystemMessage(Component.literal("\nGood\n"));
+                    break;
+
+                case 10,9,8,7,6:
+                    //slowness - jump boost - blindness
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.ZOMBIE_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
+                    pPlayer.sendSystemMessage(Component.literal("\nAlmost\n"));
+                    break;
+
+                case 5,4,3,2:
+                    //poison - hunger - nausea
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.CAT_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.HUNGER, 200, 0));
+                    pPlayer.sendSystemMessage(Component.literal("\nBad Luck\n"));
+                    break;
+
+                case 1:
+                    //critical failure
+                    //adds wither effect - weakness - mining fatigue)20 ticks = 1 sec
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
+                    pPlayer.sendSystemMessage(Component.literal("\nFUMBLE\n"));
+                    break;
+
+                default:
+                    break;
             }
-
-            if(number <= 19 && number >= 16 )
-            {
-                //fire res,absorption,regeneration
-                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_TWINKLE_FAR, SoundSource.PLAYERS, 1.0F, 1.0F);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 9));  //+9 for strength 10
-                pPlayer.sendSystemMessage(Component.literal("\nNICE\n"));
-
-                return super.use(pLevel, pPlayer, pUsedHand);
-
-            }
-
-            if(number <= 15 && number >= 11)
-            {
-                //speed-haste-night vision-conduit power-water breathing
-                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 1.0F, 1.0F);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0));
-                pPlayer.sendSystemMessage(Component.literal("\nGood\n"));
-
-                return super.use(pLevel, pPlayer, pUsedHand);
-
-            }
-
-            if(number <= 10 && number >= 6)
-            {
-                //slowness - jump boost - blindness
-                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.ZOMBIE_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 0));
-                pPlayer.sendSystemMessage(Component.literal("\nAlmost\n"));
-
-                return super.use(pLevel, pPlayer, pUsedHand);
-            }
-
-            if(number <= 5 && number >= 2)
-            {
-                //poison - hunger - nausea
-                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.CAT_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.HUNGER, 200, 0));
-                pPlayer.sendSystemMessage(Component.literal("\nBad Luck\n"));
-
-                return super.use(pLevel, pPlayer, pUsedHand);
-            }
-
-            if(number == 1) //critical failure
-            {
-                //adds wither effect - weakness - mining fatigue)20 ticks = 1 sec
-                pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                pPlayer.sendSystemMessage(Component.literal("\nFUMBLE\n"));
-
-                return super.use(pLevel, pPlayer, pUsedHand);
-
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             //play sound on player pos (different sound per number)
             //pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_TWINKLE, SoundSource.PLAYERS, 1.0F, 1.0F);
