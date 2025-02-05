@@ -31,7 +31,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DEPON_PACKET.get());
                         output.accept(ModItems.XANAX_PACKET.get());
                         output.accept(ModItems.DICE_BLADE.get());
-
+                        output.accept(ModItems.DICE_PICK.get());
 
 
                     }).build());

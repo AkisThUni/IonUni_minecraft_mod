@@ -5,10 +5,7 @@ import com.kapetanbananoflouda.minecraftmod.MinecraftMod;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,6 +51,16 @@ public class ModItems {
 
                     new Item.Properties()   //give sword atributes on top of dice tier ones
                             .attributes(SwordItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
+
+
+            ));
+
+    public static final RegistryObject<Item> DICE_PICK = ITEMS.register("dice_pick",
+            () -> new DicePick(
+                    Mod_Tiers.DICE_TIER,//base tier (base stats)
+
+                    new Item.Properties()   //give sword atributes on top of dice tier ones
+                            .attributes(PickaxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
 
 
             ));
