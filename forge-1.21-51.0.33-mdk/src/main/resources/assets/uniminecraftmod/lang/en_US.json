@@ -16,5 +16,7 @@
   "item.uniminecraftmod.dice_pick" : "Dice Pickaxe",
 
   "block.uniminecraftmod.depon_block": "Box of Depon packets",
-  "block.uniminecraftmod.xanax_block": "Box of Xanax packets"
+  "block.uniminecraftmod.xanax_block": "Box of Xanax packets",
+
+  "effect.uniminecraftmod.miner": "Area Miner"
 }
