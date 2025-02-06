@@ -10,7 +10,10 @@ import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 
 
 import java.util.Random;
@@ -23,6 +26,13 @@ public class DicePick extends PickaxeItem {
 
     //thank you gpt for solving the linear algebra math for me (perasa me 5)
     private void mine3x3(Level world, BlockPos pos, Player player) {
+
+        // Break the central block first (fixes the issue)
+        if (world.getBlockState(pos).getDestroySpeed(world, pos) >= 0) {
+            world.destroyBlock(pos, true, player);
+        }//ntax tora kati kanoume
+        
+
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
                 for (int z = -1; z <= 1; z++) {
@@ -35,7 +45,18 @@ public class DicePick extends PickaxeItem {
         }
     }
 
-    
+
+    public static BlockPos getBlockLookingAt(Player player, Level world, double maxDistance) {
+        // Ray trace to get the block the player is looking at
+        HitResult result = player.pick(maxDistance, 0, false);
+
+        if (result.getType() == HitResult.Type.BLOCK) {
+            return ((BlockHitResult) result).getBlockPos(); // Return the block position
+        }
+
+        return null; // No block was hit
+    }
+
 
 
 
@@ -48,6 +69,8 @@ public class DicePick extends PickaxeItem {
             // Apply the effect
 
             pPlayer.sendSystemMessage(Component.literal("You used the Dice pick" ));
+            BlockPos initPos = getBlockLookingAt(pPlayer,pLevel,3);
+            mine3x3(pLevel,initPos,pPlayer);
 
 
         }
