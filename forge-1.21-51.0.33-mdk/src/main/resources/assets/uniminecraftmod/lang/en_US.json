@@ -13,6 +13,7 @@
   "item.uniminecraftmod.depon_packet" : "Depon Packet",
   "item.uniminecraftmod.xanax_packet" : "Xanax packet",
   "item.uniminecraftmod.dice_blade" : "Dice Blade",
+  "item.uniminecraftmod.dice_pick" : "Dice Pickaxe",
 
   "block.uniminecraftmod.depon_block": "Box of Depon packets",
   "block.uniminecraftmod.xanax_block": "Box of Xanax packets"

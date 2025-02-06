@@ -31,7 +31,7 @@ public class DicePick extends PickaxeItem {
         if (world.getBlockState(pos).getDestroySpeed(world, pos) >= 0) {
             world.destroyBlock(pos, true, player);
         }//ntax tora kati kanoume
-        
+
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
@@ -69,8 +69,20 @@ public class DicePick extends PickaxeItem {
             // Apply the effect
 
             pPlayer.sendSystemMessage(Component.literal("You used the Dice pick" ));
-            BlockPos initPos = getBlockLookingAt(pPlayer,pLevel,3);
-            mine3x3(pLevel,initPos,pPlayer);
+
+            /*if(!pPlayer.hasEffect())//gotta add super miner effect
+            {
+                BlockPos initPos = getBlockLookingAt(pPlayer,pLevel,3);
+                mine3x3(pLevel,initPos,pPlayer);
+            }
+            else
+            {
+                //roll
+                //player give effect
+
+
+            }*/
+
 
 
         }
