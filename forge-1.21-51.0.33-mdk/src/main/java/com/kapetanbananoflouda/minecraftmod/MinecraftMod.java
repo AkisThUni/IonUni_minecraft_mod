@@ -2,7 +2,7 @@ package com.kapetanbananoflouda.minecraftmod;
 //ebala sxolio
 
 import com.kapetanbananoflouda.minecraftmod.block.ModBlocks;
-import com.kapetanbananoflouda.minecraftmod.effects.ModEffects;
+
 import com.kapetanbananoflouda.minecraftmod.items.ModCreativeModeTabs;
 import com.kapetanbananoflouda.minecraftmod.items.ModItems;
 import com.mojang.logging.LogUtils;
@@ -16,7 +16,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import com.kapetanbananoflouda.minecraftmod.effects.ModEffects;
+
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
@@ -52,8 +52,7 @@ public class MinecraftMod
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
-    //effects
-    public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MOD_ID);
+    
 
 
     /*
@@ -87,8 +86,7 @@ public class MinecraftMod
        ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
-        //reg effects
-        MOB_EFFECTS.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
