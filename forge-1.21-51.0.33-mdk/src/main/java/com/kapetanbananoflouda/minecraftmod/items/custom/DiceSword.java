@@ -131,7 +131,7 @@ public class DiceSword extends SwordItem {
                     }
                     else
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 200, 2));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 200, 0));
                         pPlayer.sendSystemMessage(Component.literal("\n&1&lYour Gravity rights have been revoked\n"));
                     }
                     break;
