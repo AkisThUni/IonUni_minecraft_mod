@@ -122,7 +122,7 @@ public class DicePick extends PickaxeItem {
             {
                 //300 ticks is  15 sec
                 case 1:
-                    pPlayer.sendSystemMessage(Component.literal("\nYou have grown &clethargic..&ftake a &erest&f." ));
+                    pPlayer.sendSystemMessage(Component.literal("\nYou have grown §clethargic..§ftake a §erest§f." ));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN,600,9));
@@ -138,20 +138,20 @@ public class DicePick extends PickaxeItem {
                     break;
                 case 11,12,13,14,15:
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,300,roll-9));//3,4,5,6,7 for buffs
-                    pPlayer.sendSystemMessage(Component.literal("\n&oI am a dwarf and I'm digging a hole, diggy diggy hole... "));
+                    pPlayer.sendSystemMessage(Component.literal("\n§oI am a dwarf and I'm digging a hole, diggy diggy hole... "));
                     break;
                 case 16,17,18,19:
 
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,300,roll-13));//3,4,5,6 for amp
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
-                    pPlayer.sendSystemMessage(Component.literal("\nYour pickaxe feels enhanced by the odds. Right click to unleash its full potential!" ));
+                    pPlayer.sendSystemMessage(Component.literal("\nYour pickaxe feels enhanced by the odds. §6§lRight click §r§fto unleash its full potential!" ));
                     break;
 
                 case 20:
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,400,roll));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,300,9));
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
-                    pPlayer.sendSystemMessage(Component.literal("\nAn Numerological Force Smiles upon you. Right Click to drill out instantly a large area!" ));
+                    pPlayer.sendSystemMessage(Component.literal("\nAn Numerological Force Smiles upon you. §6Right Click §fto drill out instantly a large area!" ));
 
                     break;
                 default:
