@@ -1,6 +1,6 @@
 package com.kapetanbananoflouda.minecraftmod.items.custom;
 
-
+//3 a debuggin got me tweaking
 
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
