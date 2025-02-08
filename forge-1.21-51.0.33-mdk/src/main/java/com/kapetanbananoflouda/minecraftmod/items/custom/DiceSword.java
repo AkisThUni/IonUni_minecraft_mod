@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -29,14 +30,24 @@ public class DiceSword extends SwordItem {
         //then a selection will be made to select a specific effect among those int the tier
 
         if (!pLevel.isClientSide) { // Ensure the message only appears on the server side and player is on the server side
+
+            //damage on roll
+            ItemStack stack = pPlayer.getItemInHand(pUsedHand);
+            // Reduce durability by 1
+            stack.hurtAndBreak(5, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
+                    ? EquipmentSlot.MAINHAND
+                    : EquipmentSlot.OFFHAND));
+
+
             //add a player cooldown for this item for 30 seconds 600 ticks
-            pPlayer.getCooldowns().addCooldown(this,60);
+            pPlayer.getCooldowns().addCooldown(this,100);
 
 
             Random dice = new Random();
 
             int roll = dice.nextInt(20) +1; //d20 roll
             int effect_selector;
+            int effect_dur = 600;
 
 
             pPlayer.sendSystemMessage(Component.literal("§k---------------------------------------------\n"));
@@ -48,10 +59,15 @@ public class DiceSword extends SwordItem {
 
             switch (roll){
                 case 20: //critical success ->best tier
+                    //To repair the item, reduce the damage value on the ItemStack.
+                    int amount = 300;
+                    int newDamage = Math.max(stack.getDamageValue() - amount, 0); // an amount - damge < 0 ? damage =0
+                    stack.setDamageValue(newDamage);
+
                     //adds strength (20 ticks = 1 sec) and resistance 10
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 9));  //+9 for strength 10
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, effect_dur, 9));  //+9 for strength 10
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, effect_dur, 9));
                     pPlayer.sendSystemMessage(Component.literal("\n\nYou feel blessed by the §2§lOdds!\n"));
                     break;
 
@@ -63,17 +79,17 @@ public class DiceSword extends SwordItem {
 
                     if( effect_selector == 1)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel an aura of §cregeneration!\n"));
                     }
                     else if (effect_selector == 2)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nI could really §6absorb §fsome hits right now..\n"));
                     }
                     else
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel like taking a §6hot §fswim. \n"));
                     }
 
@@ -87,27 +103,27 @@ public class DiceSword extends SwordItem {
 
                     if(effect_selector == 1)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200,  0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur,  0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel §bagile!\n"));
                     }
                     else if(effect_selector == 2)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nLet there be §elight!\n"));
                     }
                     else if(effect_selector == 3)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou grow §3gills §ffor a bit.\n"));
                     }
                     else if(effect_selector == 4)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.JUMP, 200, 2));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.JUMP, effect_dur, 2));
                         pPlayer.sendSystemMessage(Component.literal("\nYou can now §a dunk §fon someone! \n"));
                     }
                     else
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel lighter!\n"));
                     }
 
@@ -121,17 +137,17 @@ public class DiceSword extends SwordItem {
 
                     if(effect_selector == 1)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, effect_dur, 1));
                         pPlayer.sendSystemMessage(Component.literal("\nAn invisible force §9slows §fyou. \n"));
                     }
                     else if(effect_selector == 2)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nWho turned off the lights?!?!\n"));
                     }
                     else
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 200, 2));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\n§1§lYour Gravity rights have been revoked\n"));
                     }
                     break;
@@ -144,17 +160,17 @@ public class DiceSword extends SwordItem {
 
                     if(effect_selector == 1)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou now have §4Salmonela!\n"));
                     }
                     else if(effect_selector == 2)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.HUNGER, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.HUNGER, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou can hear odd noises from your stomach.\n"));
                     }
                     else if(effect_selector == 3)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.CONFUSION, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel like your head is going to explode.\n"));
                     }
                     else
@@ -165,13 +181,17 @@ public class DiceSword extends SwordItem {
                     break;
 
                 case 1:
+                    //big damage
+                    stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
+                            ? EquipmentSlot.MAINHAND
+                            : EquipmentSlot.OFFHAND));
                     //critical failure
                     //adds wither effect - weakness - mining fatigue)20 ticks = 1 sec
                     // pPlayer.sendSystemMessage(Component.literal("\n! FUMBLE !"));
                     pPlayer.sendSystemMessage(Component.literal("\n§6§lReturn the slab, or suffer my curse..\n"));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 9));
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, effect_dur, 9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, effect_dur, 9));
 
 
                     break;
