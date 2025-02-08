@@ -150,6 +150,7 @@ public class DicePick extends PickaxeItem {
                 case 20:
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,400,roll));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,300,9));
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\nAn Numerological Force Smiles upon you. §6Right Click §fto drill out instantly a large area!" ));
 
