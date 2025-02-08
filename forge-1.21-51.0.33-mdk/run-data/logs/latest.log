@@ -1,0 +1,22 @@
+[29Jan2025 04:42:40.350] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 17, --assetsDir, C:\Users\table\.gradle\caches\forge_gradle\assets, --gameDir, ., --mod, uniminecraftmod, --all, --output, C:\Users\table\Documents\JavaModdingMc\forge-1.21-51.0.33-mdk\src\generated\resources, --existing, C:\Users\table\Documents\JavaModdingMc\forge-1.21-51.0.33-mdk\src\main\resources]
+[29Jan2025 04:42:40.375] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.5+11-LTS
+[29Jan2025 04:42:40.378] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.2.1 starting: java version 21.0.5 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[29Jan2025 04:42:40.687] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[29Jan2025 04:42:40.951] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:///C:/Users/table/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.7/8ab114ac385e6dbdad5efafe28aba4df8120915f/mixin-0.8.7.jar!/ Service=ModLauncher Env=UNKNOWN
+[29Jan2025 04:42:43.433] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[29Jan2025 04:42:45.167] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\table\.gradle\caches\forge_gradle\assets, --assetIndex, 17, --mod, uniminecraftmod, --all, --output, C:\Users\table\Documents\JavaModdingMc\forge-1.21-51.0.33-mdk\src\generated\resources, --existing, C:\Users\table\Documents\JavaModdingMc\forge-1.21-51.0.33-mdk\src\main\resources]
+[29Jan2025 04:42:59.283] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 51.0.33, for MC 1.21 with MCP 20240613.102039
+[29Jan2025 04:42:59.285] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v51.0.33 Initialized
+[29Jan2025 04:42:59.386] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Opening jdk.naming.dns/com.sun.jndi.dns to java.naming
+[29Jan2025 04:43:00.759] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [uniminecraftmod]
+[29Jan2025 04:43:01.101] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/table/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.07.28-1.21/forge-1.21-51.0.33_mapped_parchment_2024.07.28-1.21-recomp.jar%230!/assets/.mcassetsroot' uses unexpected schema
+[29Jan2025 04:43:01.104] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/table/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.21-51.0.33_mapped_parchment_2024.07.28-1.21/forge-1.21-51.0.33_mapped_parchment_2024.07.28-1.21-recomp.jar%230!/data/.mcassetsroot' uses unexpected schema
+[29Jan2025 04:43:01.613] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[29Jan2025 04:43:02.133] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 517 ms
+[29Jan2025 04:43:02.133] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[29Jan2025 04:43:02.221] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 87 ms
+[29Jan2025 04:43:02.222] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id uniminecraftmod
+[29Jan2025 04:43:02.229] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id uniminecraftmod finished after 7 ms
+[29Jan2025 04:43:02.230] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id uniminecraftmod
+[29Jan2025 04:43:02.231] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id uniminecraftmod finished after 1 ms
+[29Jan2025 04:43:02.232] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: uniminecraftmod
