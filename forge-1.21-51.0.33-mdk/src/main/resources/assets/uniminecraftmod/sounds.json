@@ -1,0 +1,8 @@
+{
+  "success_roll": {
+    "subtitle": "sound.minecraftmod.success_roll",
+    "sounds": [
+      "minecraftmod:success_roll"
+    ]
+  }
+}

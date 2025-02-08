@@ -5,6 +5,7 @@ import com.kapetanbananoflouda.minecraftmod.block.ModBlocks;
 
 import com.kapetanbananoflouda.minecraftmod.items.ModCreativeModeTabs;
 import com.kapetanbananoflouda.minecraftmod.items.ModItems;
+import com.kapetanbananoflouda.minecraftmod.sound.ModSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -95,7 +96,7 @@ public class MinecraftMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-
+        ModSounds.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

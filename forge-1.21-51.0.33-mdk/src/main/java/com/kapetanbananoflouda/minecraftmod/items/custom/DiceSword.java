@@ -1,5 +1,6 @@
 package com.kapetanbananoflouda.minecraftmod.items.custom;
 
+import com.kapetanbananoflouda.minecraftmod.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -48,12 +49,13 @@ public class DiceSword extends SwordItem {
             switch (roll){
                 case 20: //critical success ->best tier
                     //adds strength (20 ticks = 1 sec) and resistance 10
-                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
 
-                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_TWINKLE, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    //pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_TWINKLE, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 9));  //+9 for strength 10
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 9));
                     pPlayer.sendSystemMessage(Component.literal("\n! GREAT SUCCESS !\n\nYOU BECOME SIGNIFICANTLY STRONGER\n"));
+
                     break;
 
                 case 19,18,17,16: //significant buff tier
@@ -170,7 +172,7 @@ public class DiceSword extends SwordItem {
                     //adds wither effect - weakness - mining fatigue)20 ticks = 1 sec
                     pPlayer.sendSystemMessage(Component.literal("\n! FUMBLE !"));
                     pPlayer.sendSystemMessage(Component.literal("\nYOU ARE SIGNIFICANTLY WEAK...\n"));
-                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 9));
 
