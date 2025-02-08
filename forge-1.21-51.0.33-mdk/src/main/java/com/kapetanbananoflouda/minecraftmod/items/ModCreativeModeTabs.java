@@ -32,6 +32,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.XANAX_PACKET.get());
                         output.accept(ModItems.DICE_BLADE.get());
                         output.accept(ModItems.DICE_PICK.get());
+                        output.accept(ModItems.CLOVER.get());
+                        output.accept(ModItems.CRISP_CLOVER.get());
 
 
                     }).build());
