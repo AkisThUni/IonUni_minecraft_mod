@@ -99,7 +99,7 @@ public class DicePick extends PickaxeItem {
 
                 //get the amp
                 MobEffectInstance inst = pPlayer.getEffect(MobEffects.LUCK);
-                int n = inst.getAmplifier() +1; //for radius
+                int n = inst.getAmplifier() ; //for radius (the nxn functio nreduces this by 1)
 
                 BlockPos initPos = getBlockLookingAt(pPlayer,5);
                 mineNxN(pLevel,initPos,pPlayer,n);
