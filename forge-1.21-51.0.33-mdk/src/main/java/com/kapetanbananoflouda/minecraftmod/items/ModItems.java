@@ -65,6 +65,15 @@ public class ModItems {
 
             ));
 
+        // Clover Item - Edible, Core item
+        public static final  RegistryObject<Item> CLOVER = ITEMS.register("clover",
+                ()-> new Item(new Item.Properties().food(ModFoodProperties.CLOVER)));
+
+        // Burnt clover item - Edible, Core Item
+        public static final RegistryObject<Item> CRISP_CLOVER = ITEMS.register("crisp_clover",
+                ()-> new Item(new Item.Properties().food(ModFoodProperties.CRISP_CLOVER)));
+
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
