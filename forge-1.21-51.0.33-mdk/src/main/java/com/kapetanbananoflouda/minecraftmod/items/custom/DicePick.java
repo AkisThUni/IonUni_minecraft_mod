@@ -106,10 +106,14 @@ public class DicePick extends PickaxeItem {
                 return super.use(pLevel, pPlayer, pUsedHand);
             }
 
+
+            
+
              // 30 seconds (600 ticks)
             pPlayer.getCooldowns().addCooldown(this,100); //add cooldown for roulette
             Random dice = new Random();
             int roll = dice.nextInt(20)+1;
+            int effect_dur = 600;
 
 
 
@@ -124,32 +128,32 @@ public class DicePick extends PickaxeItem {
                 case 1:
                     pPlayer.sendSystemMessage(Component.literal("\nYou have grown §clethargic..§ftake a §erest§f." ));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 9));
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN,600,9));
+
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN,effect_dur,9));
                     break;
                 case 2,3,4,5:
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.GLOWING,300,9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.GLOWING,effect_dur,9));
                     pPlayer.sendSystemMessage(Component.literal("\nYou must be popular at disco parties." ));
                     break;
                 case 6,7,8,9,10:
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 2));
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,300,1));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,0));
                     pPlayer.sendSystemMessage(Component.literal("\nDirt has gone up your eye." ));
                     break;
                 case 11,12,13,14,15:
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,300,roll-9));//3,4,5,6,7 for buffs
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,roll-9));//3,4,5,6,7 for buffs
                     pPlayer.sendSystemMessage(Component.literal("\n§oI am a dwarf and I'm digging a hole, diggy diggy hole... "));
                     break;
                 case 16,17,18,19:
 
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,300,roll-13));//3,4,5,6 for amp
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,roll-13));//3,4,5,6 for amp
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\nYour pickaxe feels enhanced by the odds. §6§lRight click §r§fto unleash its full potential!" ));
                     break;
 
                 case 20:
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,400,roll));
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,300,9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,roll));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,9));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\nAn Numerological Force Smiles upon you. §6Right Click §fto drill out instantly a large area!" ));
