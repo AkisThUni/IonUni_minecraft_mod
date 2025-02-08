@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "tutorialmod:depon_packet"
+      "item": "uniminecraftmod:depon_packet"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "tutorialmod:depon_block"
+    "id": "uniminecraftmod:depon_block"
   }
 }
