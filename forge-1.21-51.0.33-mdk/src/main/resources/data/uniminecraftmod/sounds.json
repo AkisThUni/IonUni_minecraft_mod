@@ -1,0 +1,15 @@
+{
+  "success_roll": {
+    "subtitle": "sounds.minecraftmod.success_roll",
+    "sounds": [
+      "uniminecraftmod:success_roll"
+    ]
+  },
+
+  "fail_roll": {
+    "subtitle": "sounds.minecraftmod.fail_roll",
+    "sounds": [
+      "uniminecraftmod:fail_roll"
+    ]
+  }
+}
