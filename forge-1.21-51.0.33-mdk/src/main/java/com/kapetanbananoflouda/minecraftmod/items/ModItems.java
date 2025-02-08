@@ -6,6 +6,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.levelgen.structure.templatesystem.rule.blockentity.Clear;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -33,7 +34,8 @@ public class ModItems {
     public static final RegistryObject<Item> DEPON_PACKET = ITEMS.register("depon_packet", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .nutrition(1) // Hunger restored (6 = 3 meat drumsticks)
             .saturationModifier(0.6F) // Saturation modifier (how long the hunger lasts)
-            .alwaysEdible() // Allows eating even if the player is full
+            .alwaysEdible()
+            // Allows eating even if the player is full
             .build())) );
 
     public static final RegistryObject<Item> XANAX_PACKET = ITEMS.register("xanax_packet", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
