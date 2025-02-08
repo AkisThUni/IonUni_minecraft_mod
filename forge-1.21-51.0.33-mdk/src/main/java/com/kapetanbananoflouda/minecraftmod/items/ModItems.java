@@ -54,7 +54,7 @@ public class ModItems {
 
 
             ));
-
+    // ======================== Dice Pickaxe
     public static final RegistryObject<Item> DICE_PICK = ITEMS.register("dice_pick",
             () -> new DicePick(
                     Mod_Tiers.DICE_TIER,//base tier (base stats)
@@ -62,6 +62,14 @@ public class ModItems {
                     new Item.Properties()   //give sword atributes on top of dice tier ones
                             .attributes(PickaxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
 
+
+            ));
+    // ======================== Dice Axe
+    public static  final RegistryObject<Item> DICE_AXE = ITEMS.register("dice_axe",
+            () -> new DiceAxe(
+                    Mod_Tiers.DICE_TIER,
+                    new Item.Properties()
+                            .attributes(AxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
 
             ));
 
