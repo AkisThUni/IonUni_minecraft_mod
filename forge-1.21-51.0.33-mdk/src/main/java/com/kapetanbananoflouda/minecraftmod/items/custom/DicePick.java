@@ -5,12 +5,14 @@ package com.kapetanbananoflouda.minecraftmod.items.custom;
 import com.kapetanbananoflouda.minecraftmod.ModSounds;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -93,7 +95,8 @@ public class DicePick extends PickaxeItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand)
     {
 
-        if (!pLevel.isClientSide) { // Only run on server
+        if (!pLevel.isClientSide)
+        { // Only run on server
             if(pPlayer.hasEffect(MobEffects.LUCK))//gotta add super miner effect
             {
 
@@ -105,6 +108,13 @@ public class DicePick extends PickaxeItem {
                 mineNxN(pLevel,initPos,pPlayer,n);
                 return super.use(pLevel, pPlayer, pUsedHand);
             }
+
+            //damage on roll
+            ItemStack stack = pPlayer.getItemInHand(pUsedHand);
+            // Reduce durability by 1
+            stack.hurtAndBreak(5, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
+                    ? EquipmentSlot.MAINHAND
+                    : EquipmentSlot.OFFHAND));
 
 
             
@@ -126,6 +136,10 @@ public class DicePick extends PickaxeItem {
             {
                 //300 ticks is  15 sec
                 case 1:
+                    //big damage
+                    stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
+                            ? EquipmentSlot.MAINHAND
+                            : EquipmentSlot.OFFHAND));
                     pPlayer.sendSystemMessage(Component.literal("\nYou have grown §clethargic..§ftake a §erest§f." ));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
 
@@ -157,6 +171,12 @@ public class DicePick extends PickaxeItem {
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\nAn Numerological Force Smiles upon you. §6Right Click §fto drill out instantly a large area!" ));
+
+
+                    //To repair the item, reduce the damage value on the ItemStack.
+                    int amount = 300;
+                    int newDamage = Math.max(stack.getDamageValue() - amount, 0); // an amount - damge < 0 ? damage =0
+                    stack.setDamageValue(newDamage);
 
                     break;
                 default:

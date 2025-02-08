@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -29,8 +30,17 @@ public class DiceSword extends SwordItem {
         //then a selection will be made to select a specific effect among those int the tier
 
         if (!pLevel.isClientSide) { // Ensure the message only appears on the server side and player is on the server side
+
+            //damage on roll
+            ItemStack stack = pPlayer.getItemInHand(pUsedHand);
+            // Reduce durability by 1
+            stack.hurtAndBreak(5, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
+                    ? EquipmentSlot.MAINHAND
+                    : EquipmentSlot.OFFHAND));
+
+
             //add a player cooldown for this item for 30 seconds 600 ticks
-            pPlayer.getCooldowns().addCooldown(this,60);
+            pPlayer.getCooldowns().addCooldown(this,100);
 
 
             Random dice = new Random();
@@ -49,6 +59,11 @@ public class DiceSword extends SwordItem {
 
             switch (roll){
                 case 20: //critical success ->best tier
+                    //To repair the item, reduce the damage value on the ItemStack.
+                    int amount = 300;
+                    int newDamage = Math.max(stack.getDamageValue() - amount, 0); // an amount - damge < 0 ? damage =0
+                    stack.setDamageValue(newDamage);
+
                     //adds strength (20 ticks = 1 sec) and resistance 10
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, effect_dur, 9));  //+9 for strength 10
@@ -166,6 +181,10 @@ public class DiceSword extends SwordItem {
                     break;
 
                 case 1:
+                    //big damage
+                    stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
+                            ? EquipmentSlot.MAINHAND
+                            : EquipmentSlot.OFFHAND));
                     //critical failure
                     //adds wither effect - weakness - mining fatigue)20 ticks = 1 sec
                     // pPlayer.sendSystemMessage(Component.literal("\n! FUMBLE !"));
