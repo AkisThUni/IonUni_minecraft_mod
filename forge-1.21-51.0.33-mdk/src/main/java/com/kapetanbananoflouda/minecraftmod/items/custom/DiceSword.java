@@ -39,7 +39,7 @@ public class DiceSword extends SwordItem {
             int effect_selector;
 
 
-            pPlayer.sendSystemMessage(Component.literal("@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()\n"));
+            pPlayer.sendSystemMessage(Component.literal("§k---------------------------------------------\n"));
             pPlayer.sendSystemMessage(Component.literal("You used the Dice blade!--Your lucky number is: "+ roll ));
 
 
@@ -52,7 +52,7 @@ public class DiceSword extends SwordItem {
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 9));  //+9 for strength 10
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 9));
-                    pPlayer.sendSystemMessage(Component.literal("\n! GREAT SUCCESS !\n\nYOU BECOME SIGNIFICANTLY STRONGER\n"));
+                    pPlayer.sendSystemMessage(Component.literal("\n\nYou feel blessed by the §2§lOdds!\n"));
                     break;
 
                 case 19,18,17,16: //significant buff tier
@@ -64,17 +64,17 @@ public class DiceSword extends SwordItem {
                     if( effect_selector == 1)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYOU ARE GRANTED THE POWER OF REGENERATION!!!\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou feel an aura of §cregeneration!\n"));
                     }
                     else if (effect_selector == 2)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYOU ARE GRANTED THE POWER OF ABSORPTION!!!\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nI could really §6absorb §fsome hits right now..\n"));
                     }
                     else
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYOU ARE GRANTED THE POWER OF FIRE RESISTANCE!!!\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou feel like taking a §6hot §fswim. \n"));
                     }
 
                     break;
@@ -88,22 +88,22 @@ public class DiceSword extends SwordItem {
                     if(effect_selector == 1)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200,  0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYou feel faster!\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou feel §bagile!\n"));
                     }
                     else if(effect_selector == 2)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYou can see in the dark!\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nLet there be §elight!\n"));
                     }
                     else if(effect_selector == 3)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYour affinity with water increases!\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou grow §3gills §ffor a bit.\n"));
                     }
                     else if(effect_selector == 4)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.JUMP, 200, 2));
-                        pPlayer.sendSystemMessage(Component.literal("\nYour legs surge with strength!\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou can now §a dunk §fon someone! \n"));
                     }
                     else
                     {
@@ -122,17 +122,17 @@ public class DiceSword extends SwordItem {
                     if(effect_selector == 1)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 1));
-                        pPlayer.sendSystemMessage(Component.literal("\nYour movement becomes sluggish...\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nAn invisible force §9slows §fyou. \n"));
                     }
                     else if(effect_selector == 2)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYour eyes fail you...\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nWho turned off the lights?!?!\n"));
                     }
                     else
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nGravity has forsaken you...\n"));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 200, 2));
+                        pPlayer.sendSystemMessage(Component.literal("\nYour Gravity rights have been revoked\n"));
                     }
                     break;
 
@@ -145,30 +145,30 @@ public class DiceSword extends SwordItem {
                     if(effect_selector == 1)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nA poisonous illness befalls you..\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou now have §4Salmonela!\n"));
                     }
                     else if(effect_selector == 2)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.HUNGER, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYour strength leaves you...\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou can hear odd noises from your stomach.\n"));
                     }
                     else if(effect_selector == 3)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
-                        pPlayer.sendSystemMessage(Component.literal("\nYour head spins...\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou feel like your head is going to explode.\n"));
                     }
                     else
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 1200, 2));
-                        pPlayer.sendSystemMessage(Component.literal("\nYou are cursed with great misfortune...\n"));
+                        pPlayer.sendSystemMessage(Component.literal("\nYou feel your day getting worse by the second.\n"));
                     }
                     break;
 
                 case 1:
                     //critical failure
                     //adds wither effect - weakness - mining fatigue)20 ticks = 1 sec
-                    pPlayer.sendSystemMessage(Component.literal("\n! FUMBLE !"));
-                    pPlayer.sendSystemMessage(Component.literal("\nYOU ARE SIGNIFICANTLY WEAK...\n"));
+                    // pPlayer.sendSystemMessage(Component.literal("\n! FUMBLE !"));
+                    pPlayer.sendSystemMessage(Component.literal("\nReturn the slab, or suffer my curse..\n"));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 200, 9));
@@ -179,7 +179,7 @@ public class DiceSword extends SwordItem {
                 default:
                     break;
             }
-            pPlayer.sendSystemMessage(Component.literal("@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()\n"));
+            // pPlayer.sendSystemMessage(Component.literal("@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()\n"));
 
         }
         return super.use(pLevel, pPlayer, pUsedHand);
