@@ -58,7 +58,7 @@ public class DicePick extends PickaxeItem {
     private void mineNxN(Level world, BlockPos pos, Player player, int size) {
         if (world.isClientSide) return; // Only run on the server
 
-        int radius = (size - 1) / 2; // Ensures symmetry around the center
+        int radius = (size + 1) / 2; // Ensures symmetry around the center
 
         for (int x = -radius; x <= radius; x++) {
             for (int y = -radius; y <= radius; y++) {
