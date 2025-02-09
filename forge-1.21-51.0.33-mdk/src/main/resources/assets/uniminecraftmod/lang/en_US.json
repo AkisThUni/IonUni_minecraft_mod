@@ -41,6 +41,5 @@
   "tooltips.uniminecraftmod.dice_pick": "§oThe §eluckiest§f pickaxe you will ever own. Press §7[Shift]§f for more information!",
   "tooltips.uniminecraftmod.dice_pick.shift_down": "§b[Right Click]§7 rolls a §e20-sided die §7with a cooldown of §b[] seconds§7.\n§7Depends the number you roll, you will be given §estatus effect(s)§7.\n§7Numbers above §e11 §7grant positive effects.\n§7Numbers below §e10§7 grant negative effects.\n\n§7Rolling high, will grant you a powerful §b[Right Click] Area of Effect§7 that scales with the level of your §2luck§7.\n§7Each time you use this item ability, you lose durability.",
   "tooltips.uniminecraftmod.dice_axe": "§oThe §eodds§f of a tree falling on you are low, but never zero. Press §7[Shift] §ffor more information!",
-  "tooltips.uniminecraftmod.dice_axe.shift_down": "[PLACEHOLDER]"
-
+  "tooltips.uniminecraftmod.dice_axe.shift_down": "§b[Right Click]§7 rolls a §e20-sided die §7with a cooldown of §b[] seconds§7.\n§7Depends the number you roll, you will be given §estatus effect(s)§7.\n§7Numbers above §e11 §7grant positive effects.\n§7Numbers below §e10§7 grant negative effects.\n\n§7Rolling high, will grant you a powerful §b[Right Click] Area of Effect§7 that scales with the level of your §2luck§7.\n§7Each time you use this item ability, you lose durability."
 }
