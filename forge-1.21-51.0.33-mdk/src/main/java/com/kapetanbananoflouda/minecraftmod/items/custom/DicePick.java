@@ -6,6 +6,7 @@ import com.kapetanbananoflouda.minecraftmod.ModSounds;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -101,7 +102,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
 
 
 
-
+            pPlayer.sendSystemMessage(Component.literal("!@#$%^&*()!@#$%^&*()!@#$%^&*()!@#$%^&*()!@#$%^&*()!@#$%^&*()\n"));
             pPlayer.sendSystemMessage(Component.literal("You used the Dice pick\n" ));
             pPlayer.sendSystemMessage(Component.literal("You rolled : "+roll ));
 
@@ -120,26 +121,37 @@ public class DicePick extends PickaxeItem implements toolFunctions{
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN,effect_dur,9));
                     break;
                 case 2,3,4,5:
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.CAT_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.GLOWING,effect_dur,9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS,effect_dur,9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,effect_dur,9));
+
                     pPlayer.sendSystemMessage(Component.literal("\nYou must be popular at disco parties." ));
                     break;
                 case 6,7,8,9,10:
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.LARGE_AMETHYST_BUD_BREAK, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 2));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,0));
                     pPlayer.sendSystemMessage(Component.literal("\nDirt has gone up your eye." ));
                     break;
                 case 11,12,13,14,15:
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LARGE_BLAST, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,roll-9));//3,4,5,6,7 for buffs
                     pPlayer.sendSystemMessage(Component.literal("\n§oI am a dwarf and I'm digging a hole, diggy diggy hole... "));
                     break;
                 case 16,17,18,19:
-
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, effect_dur, 2));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,roll-13));//3,4,5,6 for amp
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\nYour pickaxe feels enhanced by the odds. §6§lRight click §r§fto unleash its full potential!" ));
                     break;
 
                 case 20:
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, effect_dur, 2));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,roll));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,9));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
@@ -161,9 +173,10 @@ public class DicePick extends PickaxeItem implements toolFunctions{
 
 
 
-            
 
+            pPlayer.sendSystemMessage(Component.literal("\n"));
         }
+
         return super.use(pLevel, pPlayer, pUsedHand);
 
     }

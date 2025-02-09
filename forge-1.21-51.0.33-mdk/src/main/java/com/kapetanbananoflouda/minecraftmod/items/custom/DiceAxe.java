@@ -98,6 +98,11 @@ public class DiceAxe  extends AxeItem implements toolFunctions
             switch (roll) {
                 //300 ticks is  15 sec
                 case 1:
+                    //big damage
+                    stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
+                            ? EquipmentSlot.MAINHAND
+                            : EquipmentSlot.OFFHAND));
+                    //critical failure
                     pPlayer.sendSystemMessage(Component.literal("\nYou have grown §clethargic..§ftake a §erest§f."));
                     pLevel.playSound(null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 9));
@@ -111,8 +116,8 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     pPlayer.sendSystemMessage(Component.literal("\nYour mind is shrouded, you should rest."));
                     break;
                 case 6, 7, 8, 9, 10:
-                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.ANVIL_FALL, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    //pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.LARGE_AMETHYST_BUD_BREAK, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.LARGE_AMETHYST_BUD_BREAK, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 100, 2));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 300, 1));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
@@ -132,6 +137,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,roll -13));//4,5,6,7 LUCK
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,effect_dur,roll - 13));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur, 2));
 
                     pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\nYour axe §eunleashes a portion of its true power..."));
@@ -145,7 +151,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,effect_dur,9));
                     //pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
-                    pPlayer.sendSystemMessage(Component.literal("\n§4§o§lJACKPOT - The §6NUMBERS §esmile upon §e§oyou..."));
+                    pPlayer.sendSystemMessage(Component.literal("\n§4§o§lJACKPOT - The §6NUMBERS §egrace §e§oyou with the power of §6Right Click!"));
 
                     //To repair the item, reduce the damage value on the ItemStack.
                     int amount = 300;
