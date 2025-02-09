@@ -36,25 +36,7 @@ public class DicePick extends PickaxeItem {
     }
 
     //thank you gpt for solving the linear algebra math for me (perasa me 5)
-    private void mine3x3(Level world, BlockPos pos, Player player) {
 
-        // Break the central block first (fixes the issue)
-        if (world.getBlockState(pos).getDestroySpeed(world, pos) >= 0) {
-            world.destroyBlock(pos, true, player);
-        }//ntax tora kati kanoume
-
-
-        for (int x = -1; x <= 1; x++) {
-            for (int y = -1; y <= 1; y++) {
-                for (int z = -1; z <= 1; z++) {
-                    BlockPos newPos = pos.offset(x, y, z);
-                    if (!newPos.equals(pos)) { // Don't break the original block twice
-                        world.destroyBlock(newPos, true, player);
-                    }
-                }
-            }
-        }
-    }
 
     //bgalame kai nxn
     private void mineNxN(Level world, BlockPos pos, Player player, int size) {
