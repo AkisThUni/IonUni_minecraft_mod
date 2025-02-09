@@ -24,16 +24,16 @@ public class ModEventHandler {
         BlockState state = event.getState();
 
 
-        // Check if the broken block is Grass or Tall Grass
+        // Check if the broken block is grass or tall grass
         if (!level.isClientSide() && state.is(Blocks.SHORT_GRASS) || state.is(Blocks.TALL_GRASS)) {
             ServerLevel serverLevel = (ServerLevel) level;
 
             //find the block
             BlockState blockState = level.getBlockState(pos);
             Block block = blockState.getBlock();
-            ItemStack drop = new ItemStack(ModItems.CLOVER.get(), 1); // Drops 1 Clover item
+            ItemStack drop = new ItemStack(ModItems.CLOVER.get(), 1); // Drops 1 clover
 
-            // Drop the item at the grass block's position
+            // Drop at the grass block's position
             Random dice = new Random();
             int roll = dice.nextInt(100) + 1;
             if(roll <= 25) //25% chance to drop

@@ -129,7 +129,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 5.0F, 1.0F);
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LARGE_BLAST, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, effect_dur, roll-10));//2,3,4,5,6
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur, 2));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur, 1));
                     pPlayer.sendSystemMessage(Component.literal("\n§eYou feel a surge of §lInspiration!"));
                     break;
                 case 16, 17, 18, 19:
