@@ -2,6 +2,8 @@ package com.kapetanbananoflouda.minecraftmod.items;
 //import num item
 import com.kapetanbananoflouda.minecraftmod.items.custom.*; //import all the custom items
 import com.kapetanbananoflouda.minecraftmod.MinecraftMod;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -12,6 +14,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
 
 
 public class ModItems {
@@ -52,10 +55,20 @@ public class ModItems {
                     Mod_Tiers.DICE_TIER,//base tier (base stats)
 
                     new Item.Properties()   //give sword atributes on top of dice tier ones
-                            .attributes(SwordItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
+                            .attributes(SwordItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))){
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    if(Screen.hasShiftDown()){
+                        pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_blade.shift_down"));
+                    }
+                    pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_blade"));
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+            }
 
 
-            ));
+
+            );
     // ======================== Dice Pickaxe
     public static final RegistryObject<Item> DICE_PICK = ITEMS.register("dice_pick",
             () -> new DicePick(
@@ -82,6 +95,25 @@ public class ModItems {
         // Burnt clover item - Edible, Core Item
         public static final RegistryObject<Item> CRISP_CLOVER = ITEMS.register("crisp_clover",
                 ()-> new Item(new Item.Properties().food(ModFoodProperties.CRISP_CLOVER)));
+
+        // ==========================Clover Armour: Armour that gives you a permanent luck effect, but trades off your defense
+        public static final RegistryObject<Item> CLOVER_HAT = ITEMS.register("clover_hat",
+                () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+                        new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(5))));
+
+        public static final RegistryObject<Item> CLOVER_CHESTPLATE = ITEMS.register("clover_chestplate",
+                () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+                         new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(5))));
+
+        public static final RegistryObject<Item> CLOVER_LEGGINGS = ITEMS.register("clover_leggings",
+                () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+                        new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(5))));
+
+        public static final RegistryObject<Item> CLOVER_BOOTS = ITEMS.register("clover_boots",
+                () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+                        new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(5))));
+
+
 
 
     public static void register(IEventBus eventBus) {

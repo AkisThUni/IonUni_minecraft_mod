@@ -22,6 +22,11 @@
   "block.uniminecraftmod.xanax_block": "Box of Xanax packets",
 
 
+  "item.uniminecraftmod.clover_hat": "Clover hat",
+  "item.uniminecraftmod.clover_chestplate": "Clover hide",
+  "item.uniminecraftmod.clover_leggings": "Clover pants",
+  "item.uniminecraftmod.clover_boots": "Clover shoes",
+
 
   "item.minecraft.potion.effect.liquid_luck": "Potion of Luck",
   "item.minecraft.splash_potion.effect.liquid_luck": "Splash Potion of Luck",
@@ -29,6 +34,10 @@
 
   "item.minecraft.potion.effect.liquid_unluck": "Potion of Bad Luck",
   "item.minecraft.splash_potion.effect.liquid_unluck": "Splash Potion of Bad Luck",
-  "item.minecraft.lingering_potion.effect.liquid_unluck": "Lingering Potion of Bad Luck"
+  "item.minecraft.lingering_potion.effect.liquid_unluck": "Lingering Potion of Bad Luck",
+
+  "tooltips.uniminecraftmod.dice_blade": "§oA sword enhanced by the Odds.\n§rPress §7[Shift] §ffor more information!",
+  "tooltips.uniminecraftmod.dice_blade.shift_down": "§7[Right Clicking] §7rolls a §e20-sided dice §7with a cooldown of §b[] seconds§7.\n§7Depends the number you roll you will be given §estatus effect(s)§7.\n§7Numbers above §e11 §7grant positive effects.\n§7Numbers below §c10 §7grant negative effects.\n§7Each time you use the item, you loose durability."
+
 
 }

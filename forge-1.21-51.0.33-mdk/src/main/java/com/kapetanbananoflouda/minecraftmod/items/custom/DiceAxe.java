@@ -70,14 +70,14 @@ public class DiceAxe  extends AxeItem {
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 100, 2));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 300, 1));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.HARM, 20, 0));
-                    pPlayer.sendSystemMessage(Component.literal("\nYou accidentally cut yourself, Ouch!"));
+                    pPlayer.sendSystemMessage(Component.literal("\nYou accidentally §ccut §fyourself, Ouch!"));
                     break;
                 case 11, 12, 13, 14, 15:
 
                     // ===================== CHECK THIS ONE CRICO - to chekara
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, effect_dur, roll-9));//3,4,5,6,7 for buffs.
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur, 2));
-                    pPlayer.sendSystemMessage(Component.literal("\n§eYou feel a surge of Inspiration!"));
+                    pPlayer.sendSystemMessage(Component.literal("\n§eYou feel a surge of §lInspiration!"));
                     break;
                 case 16, 17, 18, 19:
 
