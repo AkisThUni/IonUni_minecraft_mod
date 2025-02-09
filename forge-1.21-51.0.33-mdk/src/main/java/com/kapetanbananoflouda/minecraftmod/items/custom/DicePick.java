@@ -30,64 +30,38 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Random;
 
 
-public class DicePick extends PickaxeItem {
+
+
+public class DicePick extends PickaxeItem implements toolFunctions{
     public DicePick(Tier pTier, Properties pProperties) {
         super(pTier, pProperties); //constructor apo pickaxe
     }
 
-    //thank you gpt for solving the linear algebra math for me (perasa me 5)
-    private void mine3x3(Level world, BlockPos pos, Player player) {
 
-        // Break the central block first (fixes the issue)
-        if (world.getBlockState(pos).getDestroySpeed(world, pos) >= 0) {
-            world.destroyBlock(pos, true, player);
-        }//ntax tora kati kanoume
-
-
-        for (int x = -1; x <= 1; x++) {
-            for (int y = -1; y <= 1; y++) {
-                for (int z = -1; z <= 1; z++) {
-                    BlockPos newPos = pos.offset(x, y, z);
-                    if (!newPos.equals(pos)) { // Don't break the original block twice
-                        world.destroyBlock(newPos, true, player);
-                    }
-                }
-            }
-        }
-    }
-
-    //bgalame kai nxn
-    private void mineNxN(Level world, BlockPos pos, Player player, int size) {
+    @Override
+    public void mineNxN(Level world, BlockPos pos, Player player, int size)
+    {
         if (world.isClientSide) return; // Only run on the server
 
         int radius = (size + 1) / 2; // Ensures symmetry around the center
 
-        for (int x = -radius; x <= radius; x++) {
-            for (int y = -radius; y <= radius; y++) {
-                for (int z = -radius; z <= radius; z++) {
+        for (int x = -radius; x <= radius; x++)
+        {
+            for (int y = -radius; y <= radius; y++)
+            {
+                for (int z = -radius; z <= radius; z++)
+                {
                     BlockPos newPos = pos.offset(x, y, z);
 
                     // Prevent breaking unbreakable blocks like bedrock
-                    if (world.getBlockState(newPos).getDestroySpeed(world, newPos) >= 0) {
+                    if (world.getBlockState(newPos).getDestroySpeed(world, newPos) >= 0)
+                    {
                         world.destroyBlock(newPos, true, player);
                     }
                 }
             }
         }
     }
-
-    public static BlockPos getBlockLookingAt(Player player, double maxDistance)
-    {
-        // pio bloc kkoitame? ayt otha kanoume mine gyro gyro
-        HitResult result = player.pick(maxDistance, 0, false);
-
-        if (result.getType() == HitResult.Type.BLOCK) {
-            return ((BlockHitResult) result).getBlockPos(); // Return the block position
-        }
-
-        return null; // No block was hit
-    }
-
 
 
 
@@ -104,7 +78,7 @@ public class DicePick extends PickaxeItem {
                 MobEffectInstance inst = pPlayer.getEffect(MobEffects.LUCK);
                 int n = inst.getAmplifier() ; //for radius (the nxn functio nreduces this by 1)
 
-                BlockPos initPos = getBlockLookingAt(pPlayer,5);
+                BlockPos initPos = toolFunctions.getBlockLookingAt(pPlayer,5);
                 mineNxN(pLevel,initPos,pPlayer,n);
                 return super.use(pLevel, pPlayer, pUsedHand);
             }
@@ -193,6 +167,7 @@ public class DicePick extends PickaxeItem {
         return super.use(pLevel, pPlayer, pUsedHand);
 
     }
+
 
 }
 

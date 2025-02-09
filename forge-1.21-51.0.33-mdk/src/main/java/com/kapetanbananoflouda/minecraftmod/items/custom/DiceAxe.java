@@ -1,8 +1,10 @@
 package com.kapetanbananoflouda.minecraftmod.items.custom;
 
 import com.kapetanbananoflouda.minecraftmod.ModSounds;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -15,30 +17,70 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Random;
 
 
-public class DiceAxe  extends AxeItem {
+public class DiceAxe  extends AxeItem implements toolFunctions
+{
     public DiceAxe(Tier pTier, Properties pProperties) {
         super(pTier, pProperties);
     }
 
 
-    // Insert here crico.exe
+    // Insert here crico.exe -done
+    @Override
+    public void mineNxN(Level world, BlockPos pos, Player player, int size)
+    {
+        if (world.isClientSide) return; // Only run on the server
+
+        int radius = (size + 1) / 2; // Ensures symmetry around the center
+
+        for (int x = -radius; x <= radius; x++)
+        {
+            for (int y = -radius; y <= radius; y++)
+            {
+                for (int z = -radius; z <= radius; z++)
+                {
+                    BlockPos newPos = pos.offset(x, y, z);
+                    BlockState state = world.getBlockState(newPos);
+
+                    //only break if it is a log block
+                    if(state.is(BlockTags.LOGS))
+                    {
+                        world.destroyBlock(newPos,true,player);
+                    }
+                }
+            }
+        }
+
+    }
+
+
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         // insert here
         if (!pLevel.isClientSide) {
             //run only on server , to avoid double use (learned from experience)
+            if(pPlayer.hasEffect(MobEffects.LUCK)) //same as pickaxe scales with luck amplifier
+            {
 
+                //get the amp
+                MobEffectInstance inst = pPlayer.getEffect(MobEffects.LUCK);
+                int n = inst.getAmplifier() ; //for radius (the nxn functio nreduces this by 1)
+
+                BlockPos initPos = toolFunctions.getBlockLookingAt(pPlayer,5);
+                mineNxN(pLevel,initPos,pPlayer,n);
+                return super.use(pLevel, pPlayer, pUsedHand);
+            }
 
             pPlayer.getCooldowns().addCooldown(this, 100); //add cooldown for roulette
             Random dice = new Random();
             int roll = dice.nextInt(20) + 1;
             int effect_dur = 600;
-
+            //local variables cause for every item there will be an extra set at all times(definitely not casue we are bored to change it now)
             //damage on roll
             ItemStack stack = pPlayer.getItemInHand(pUsedHand);
             // Reduce durability by 1
@@ -80,12 +122,13 @@ public class DiceAxe  extends AxeItem {
                     pPlayer.sendSystemMessage(Component.literal("\n§eYou feel a surge of §lInspiration!"));
                     break;
                 case 16, 17, 18, 19:
-
+                    //pos to break
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,roll -13));
 
                     // ============================ CHECK THIS ONE OUT
                     //pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,300,roll-13));//3,4,5,6 for amp
-                    // pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
-                    pPlayer.sendSystemMessage(Component.literal("\nPLACEHOLDER"));
+                    pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
+                    pPlayer.sendSystemMessage(Component.literal("\nYour axe unleashes a portion of its true power..."));
                     break;
 
                 case 20:
@@ -114,6 +157,8 @@ public class DiceAxe  extends AxeItem {
         }
         return super.use(pLevel, pPlayer, pUsedHand);
     }
+
+
 }
 
 
