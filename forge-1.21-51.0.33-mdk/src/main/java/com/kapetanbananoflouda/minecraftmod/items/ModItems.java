@@ -61,7 +61,9 @@ public class ModItems {
                     if(Screen.hasShiftDown()){
                         pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_blade.shift_down"));
                     }
-                    pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_blade"));
+                    else {
+                        pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_blade"));
+                    }
                     super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
                 }
             }
@@ -75,18 +77,42 @@ public class ModItems {
                     Mod_Tiers.DICE_TIER,//base tier (base stats)
 
                     new Item.Properties()   //give sword atributes on top of dice tier ones
-                            .attributes(PickaxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
+                            .attributes(PickaxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))){
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    if(Screen.hasShiftDown()){
+                        pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_pick.shift_down"));
+                    }
+                    else {
+                        pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_pick"));
+                    }
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+            }
 
 
-            ));
+            );
     // ======================== Dice Axe
     public static  final RegistryObject<Item> DICE_AXE = ITEMS.register("dice_axe",
             () -> new DiceAxe(
                     Mod_Tiers.DICE_TIER,
                     new Item.Properties()
-                            .attributes(AxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))
+                            .attributes(AxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))){
 
-            ));
+                @Override
+                public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+                    if(Screen.hasShiftDown()){
+                        pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_axe.shift_down"));
+                    }
+                    else {
+                        pTooltipComponents.add(Component.translatable("tooltips.uniminecraftmod.dice_axe"));
+                    }
+                    super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
+                }
+
+            }
+
+            );
 
         // Clover Item - Edible, Core item
         public static final  RegistryObject<Item> CLOVER = ITEMS.register("clover",
