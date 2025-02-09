@@ -36,6 +36,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CLOVER.get());
                         output.accept(ModItems.CRISP_CLOVER.get());
                         output.accept(ModItems.DICE_AXE.get());
+                        output.accept(ModItems.CLOVER_HAT.get());
+                        output.accept(ModItems.CLOVER_BOOTS.get());
+                        output.accept(ModItems.CLOVER_LEGGINGS.get());
+                        output.accept(ModItems.CLOVER_CHESTPLATE.get());
 
 
                     }).build());
