@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "uniminecraftmod:clover"
+    },
+    "B": {
+      "item": "minecraft:emerald"
+    },
+    "C": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "D": {
+      "item": "minecraft:gunpowder"
+    },
+    "E": {
+      "item": "minecraft:diamond_shovel"
+    }
+  },
+  "pattern": [
+    "DCD ",
+    "BAB",
+    "DED"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uniminecraftmod:dice_pick"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "uniminecraftmod:clover"
+    },
+    "B": {
+      "item": "minecraft:emerald"
+    },
+    "C": {
+      "item": "minecraft:diamond_axe"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "ADD ",
+    "BCD",
+    "BBA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uniminecraftmod:dice_axe"
+  }
+}
