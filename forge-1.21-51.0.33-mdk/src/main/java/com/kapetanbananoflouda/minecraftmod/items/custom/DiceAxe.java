@@ -110,10 +110,10 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.HUNGER, effect_dur, 3));
                     break;
                 case 2, 3, 4, 5:
-                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.WARDEN_EMERGE, SoundSource.PLAYERS, 7.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.WARDEN_EMERGE, SoundSource.PLAYERS, 12.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS, effect_dur, 4));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, effect_dur, 4));
-                    pPlayer.sendSystemMessage(Component.literal("\nThe Lorax is displeased."));
+                    pPlayer.sendSystemMessage(Component.literal("\n§4§lThe §6Lorax §4is displeased."));
                     break;
                 case 6, 7, 8, 9, 10:
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1.0F, 1.0F);
@@ -126,7 +126,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                 case 11, 12, 13, 14, 15:
 
                     // ===================== CHECK THIS ONE CRICO - to chekara
-                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 5.0F, 1.0F);
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.FIREWORK_ROCKET_LARGE_BLAST, SoundSource.PLAYERS, 1.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, effect_dur, roll-10));//2,3,4,5,6
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur, 2));
@@ -150,7 +150,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,effect_dur,9));
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,effect_dur,4));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,effect_dur,2));
                     //pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\n 4§o§lJACKPOT - The §6NUMBERS §egrace §e§oyou with the power of §bRight Click!"));
 
