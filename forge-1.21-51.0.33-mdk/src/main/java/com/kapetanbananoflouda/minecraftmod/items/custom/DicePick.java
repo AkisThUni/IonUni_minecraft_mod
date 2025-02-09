@@ -126,7 +126,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,effect_dur,9));
 
-                    pPlayer.sendSystemMessage(Component.literal("\nYou must be popular at disco parties." ));
+                    pPlayer.sendSystemMessage(Component.literal("\n§7§osomething is approaching..." ));
                     break;
                 case 6,7,8,9,10:
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.GHAST_HURT, SoundSource.PLAYERS, 10.0F, 1.0F);
