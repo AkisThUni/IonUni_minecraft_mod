@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "tutorialmod:xanax_packet"
+      "item": "uniminecraftmod:xanax_packet"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "tutorialmod:xanax_block"
+    "id": "uniminecraftmod:xanax_block"
   }
 }

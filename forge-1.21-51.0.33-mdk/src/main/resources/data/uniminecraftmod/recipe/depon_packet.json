@@ -4,12 +4,12 @@
   "ingredients":
           [
             {
-              "item": "tutorialmod:depon_block"
+              "item": "uniminecraftmod:depon_block"
             }
           ],
   "result":
   {
     "count": 9,
-    "id": "tutorialmod:depon_packet"
+    "id": "uniminecraftmod:depon_packet"
   }
 }

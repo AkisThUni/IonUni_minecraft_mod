@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "uniminecraftmod:clover"
+
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "uniminecraftmod:crisp_clover"
+  }
+
+
+
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "uniminecraftmod:clover"
+  },
+  "result": {
+    "id": "uniminecraftmod:crisp_clover"
+  }
+}
