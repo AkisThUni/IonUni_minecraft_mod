@@ -36,7 +36,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
     {
         if (world.isClientSide) return; // Only run on the server
 
-        int radius = (2*size + 1) / 2; // Ensures symmetry around the center
+        int radius = (size + 1) ; // Ensures symmetry around the center
 
         for (int x = -radius; x <= radius; x++)
         {
