@@ -124,7 +124,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.WARDEN_EMERGE, SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.GLOWING,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS,effect_dur,9));
-                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,effect_dur,9));
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,150,9));
 
                     pPlayer.sendSystemMessage(Component.literal("\n§7§osomething is approaching..." ));
                     break;

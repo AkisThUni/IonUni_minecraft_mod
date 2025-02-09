@@ -103,7 +103,7 @@ public class DiceSword extends SwordItem {
 
                     if(effect_selector == 1)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur,  0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur,  3));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel §bagile!\n"));
                     }
                     else if(effect_selector == 2)
