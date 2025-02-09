@@ -55,7 +55,7 @@ public class ModItems {
                     Mod_Tiers.DICE_TIER,//base tier (base stats)
 
                     new Item.Properties()   //give sword atributes on top of dice tier ones
-                            .attributes(SwordItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))){
+                            .attributes(SwordItem.createAttributes(Mod_Tiers.DICE_TIER,2,-3f))){
                 @Override
                 public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
                     if(Screen.hasShiftDown()){
@@ -77,7 +77,7 @@ public class ModItems {
                     Mod_Tiers.DICE_TIER,//base tier (base stats)
 
                     new Item.Properties()   //give sword atributes on top of dice tier ones
-                            .attributes(PickaxeItem.createAttributes(Mod_Tiers.DICE_TIER,3,-3f))){
+                            .attributes(PickaxeItem.createAttributes(Mod_Tiers.DICE_TIER,0,-2f))){
                 @Override
                 public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
                     if(Screen.hasShiftDown()){
