@@ -125,19 +125,19 @@ public class ModItems {
         // ==========================Clover Armour: Armour that gives you a permanent luck effect, but trades off your defense
         public static final RegistryObject<Item> CLOVER_HAT = ITEMS.register("clover_hat",
                 () -> new ModArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                        new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(5))));
+                        new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));
 
         public static final RegistryObject<Item> CLOVER_CHESTPLATE = ITEMS.register("clover_chestplate",
                 () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
-                         new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(5))));
+                         new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(10))));
 
         public static final RegistryObject<Item> CLOVER_LEGGINGS = ITEMS.register("clover_leggings",
                 () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
-                        new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(5))));
+                        new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(10))));
 
         public static final RegistryObject<Item> CLOVER_BOOTS = ITEMS.register("clover_boots",
                 () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
-                        new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(5))));
+                        new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(10))));
 
 
 
