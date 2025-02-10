@@ -1,7 +1,9 @@
 package com.kapetanbananoflouda.minecraftmod.items.custom;
 
 import com.kapetanbananoflouda.minecraftmod.ModSounds;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -30,6 +32,18 @@ public class DiceSword extends SwordItem {
         //then a selection will be made to select a specific effect among those int the tier
 
         if (!pLevel.isClientSide) { // Ensure the message only appears on the server side and player is on the server side
+            //particles
+            ( (ServerLevel) pLevel).sendParticles(ParticleTypes.FLAME,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
+
+            //add a player cooldown for this item for 30 seconds 600 ticks
+            pPlayer.getCooldowns().addCooldown(this,200);
+
+
+            Random dice = new Random();
+
+            int roll = dice.nextInt(20) +1; //d20 roll
+            int effect_selector;
+            int effect_dur = 600;
 
             //damage on roll
             ItemStack stack = pPlayer.getItemInHand(pUsedHand);
@@ -39,15 +53,6 @@ public class DiceSword extends SwordItem {
                     : EquipmentSlot.OFFHAND));
 
 
-            //add a player cooldown for this item for 30 seconds 600 ticks
-            pPlayer.getCooldowns().addCooldown(this,100);
-
-
-            Random dice = new Random();
-
-            int roll = dice.nextInt(20) +1; //d20 roll
-            int effect_selector;
-            int effect_dur = 600;
 
 
             pPlayer.sendSystemMessage(Component.literal("§k---------------------------------------------\n"));
@@ -59,6 +64,9 @@ public class DiceSword extends SwordItem {
 
             switch (roll){
                 case 20: //critical success ->best tier
+                    //particles
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.DRAGON_BREATH,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
+
                     //To repair the item, reduce the damage value on the ItemStack.
                     int amount = 300;
                     int newDamage = Math.max(stack.getDamageValue() - amount, 0); // an amount - damge < 0 ? damage =0
@@ -103,7 +111,7 @@ public class DiceSword extends SwordItem {
 
                     if(effect_selector == 1)
                     {
-                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur,  3));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, effect_dur,  2));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel §bagile!\n"));
                     }
                     else if(effect_selector == 2)
@@ -181,6 +189,12 @@ public class DiceSword extends SwordItem {
                     break;
 
                 case 1:
+                    //particles
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() , pPlayer.getZ() , 15, 0, 0, 0,1);
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() + 2, pPlayer.getZ() , 15, 0, 0, 0,1);
+
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.SOUL_FIRE_FLAME,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
                     //big damage
                     stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
                             ? EquipmentSlot.MAINHAND
