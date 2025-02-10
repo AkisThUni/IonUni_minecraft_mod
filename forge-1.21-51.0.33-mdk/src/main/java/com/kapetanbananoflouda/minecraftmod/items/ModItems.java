@@ -139,10 +139,6 @@ public class ModItems {
                 () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
                         new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(10))));
 
-        /* public static final RegistryObject<Item> CLOVER_HELMET = ITEMS.register("clover_helmet",
-                () -> new ArmorItem((ModArmorMaterials.CRISP_CLOVER_MATERIAL ArmorItem.Type.HELMET,
-                        new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));*/
-
 
 
 
