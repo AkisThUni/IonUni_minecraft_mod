@@ -16,12 +16,13 @@
     }
   },
   "pattern": [
-    "ADD ",
-    "BCD",
-    "BBA"
+    "DBD",
+    "ACA",
+    "DBD"
   ],
   "result": {
     "count": 1,
     "id": "uniminecraftmod:dice_axe"
   }
 }
+

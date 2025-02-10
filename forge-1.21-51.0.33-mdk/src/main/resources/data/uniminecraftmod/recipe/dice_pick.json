@@ -12,19 +12,16 @@
       "item": "minecraft:diamond_pickaxe"
     },
     "D": {
-      "item": "minecraft:gunpowder"
-    },
-    "E": {
-      "item": "minecraft:diamond_shovel"
+      "item": "minecraft:diamond"
     }
   },
   "pattern": [
-    "DCD ",
-    "BAB",
-    "DED"
+    "DBD",
+    "ACA",
+    "DBD"
   ],
   "result": {
     "count": 1,
-    "id": "uniminecraftmod:dice_pick"
+    "id": "uniminecraftmod:dice_axe"
   }
 }
