@@ -30,6 +30,11 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BODY, 6);
             }), 20, 0f, 0.0f, () -> ModItems.CLOVER.get());
 
+    private static final Holder<ArmorMaterial> CRISP_HELMET_MATERIAL = register("crisp_clover", Util.make(new EnumMap<>(ArmorItem.Type.class),
+            attribute -> {
+        attribute.put(ArmorItem.Type.HELMET, 3);
+            }), 15, 1f, 0, () -> ModItems.CRISP_CLOVER.get());
+
     private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> typeProtection,
                                                   int enchantability, float toughness, float knockbackResistance,
                                                   Supplier<Item> ingredientItem) {
