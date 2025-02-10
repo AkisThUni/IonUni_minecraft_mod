@@ -30,6 +30,7 @@ public class ModArmorMaterials {
                 attribute.put(ArmorItem.Type.BODY, 6);
             }), 20, 0f, 0.0f, () -> ModItems.CLOVER.get());
 
+
     private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> typeProtection,
                                                   int enchantability, float toughness, float knockbackResistance,
                                                   Supplier<Item> ingredientItem) {
