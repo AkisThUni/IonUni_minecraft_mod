@@ -40,7 +40,7 @@ public class DiceSword extends SwordItem {
 
 
             //add a player cooldown for this item for 30 seconds 600 ticks
-            pPlayer.getCooldowns().addCooldown(this,100);
+            pPlayer.getCooldowns().addCooldown(this,200);
 
 
             Random dice = new Random();

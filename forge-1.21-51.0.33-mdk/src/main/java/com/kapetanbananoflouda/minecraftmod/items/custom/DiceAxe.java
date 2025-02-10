@@ -77,7 +77,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                 return super.use(pLevel, pPlayer, pUsedHand);
             }
 
-            pPlayer.getCooldowns().addCooldown(this, 100); //add cooldown for roulette
+            pPlayer.getCooldowns().addCooldown(this, 200); //add cooldown for roulette
             Random dice = new Random();
             int roll = dice.nextInt(20) + 1;
             int effect_dur = 600; //30 sec

@@ -95,7 +95,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
             
 
              // 30 seconds (600 ticks)
-            pPlayer.getCooldowns().addCooldown(this,100); //add cooldown for roulette
+            pPlayer.getCooldowns().addCooldown(this,200); //add cooldown for roulette
             Random dice = new Random();
             int roll = dice.nextInt(20)+1;
             int effect_dur = 600;
@@ -126,7 +126,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DARKNESS,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,150,9));
 
-                    pPlayer.sendSystemMessage(Component.literal("\nYou must be popular at disco parties." ));
+                    pPlayer.sendSystemMessage(Component.literal("\n§cSOMETHING §fis coming..." ));
                     break;
                 case 6,7,8,9,10:
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.GHAST_HURT, SoundSource.PLAYERS, 10.0F, 1.0F);
