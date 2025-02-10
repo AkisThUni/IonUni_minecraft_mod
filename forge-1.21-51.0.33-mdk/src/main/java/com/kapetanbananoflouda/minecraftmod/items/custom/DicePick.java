@@ -41,6 +41,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
     }
 
 
+    // This is for the x y z mining. Similarly to treecapitator.
     @Override
     public void mineNxN(Level world, BlockPos pos, Player player, int size)
     {
@@ -113,7 +114,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
 
             pPlayer.sendSystemMessage(Component.literal("§k------------------\n"));
             pPlayer.sendSystemMessage(Component.literal("You used the Dice pick\n" ));
-            pPlayer.sendSystemMessage(Component.literal("You rolled : "+roll ));
+            pPlayer.sendSystemMessage(Component.literal("You rolled :§e "+roll ));
 
 
             switch (roll)
@@ -126,7 +127,7 @@ public class DicePick extends PickaxeItem implements toolFunctions{
                     ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() + 2, pPlayer.getZ() , 15, 0, 0, 0,1);
 
                     ( (ServerLevel) pLevel).sendParticles(ParticleTypes.SOUL_FIRE_FLAME,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
-                    //big damage
+                    //Reduces the durability by 300
                     stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
                             ? EquipmentSlot.MAINHAND
                             : EquipmentSlot.OFFHAND));

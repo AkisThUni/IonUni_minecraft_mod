@@ -4,17 +4,15 @@
   "block.uniminecraftmod.cat_block": "Cat stare.wav",
 
   "creativetab.uniminecraftmod.numerology_items": "Numerology Items",
-
   "creativetab.uniminecraftmod.numerology_blocks": "Numerology Blocks",
-  "creativetab.uniminecraftmod.medication_items": "medication items",
-  "creativetab.uniminecraftmod.medication_blocks": "medication blocks",
+
 
   "item.uniminecraftmod.number_generator": "lucky number generator",
   "item.uniminecraftmod.depon_packet" : "Depon Packet",
   "item.uniminecraftmod.xanax_packet" : "Xanax packet",
-  "item.uniminecraftmod.dice_blade" : "Holy Blade of RNGesus",
-  "item.uniminecraftmod.dice_pick" : "Cloverpillar Excavator™",
-  "item.uniminecraftmod.dice_axe": "Numerological Treecapitator",
+  "item.uniminecraftmod.dice_blade" : "§dHoly Blade of RNGesus",
+  "item.uniminecraftmod.dice_pick" : "§dCloverpillar Excavator™",
+  "item.uniminecraftmod.dice_axe": "§dNumerological Treecapitator",
   "item.uniminecraftmod.clover" : "Clover",
   "item.uniminecraftmod.crisp_clover" : "Crisp Clover",
 

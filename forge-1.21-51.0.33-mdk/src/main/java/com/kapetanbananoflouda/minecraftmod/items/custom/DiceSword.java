@@ -11,6 +11,7 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -107,7 +108,6 @@ public class DiceSword extends SwordItem {
                     effect_selector = dice.nextInt(5)+1;
                     //speed/haste-night vision-conduit power-water breathing - jump
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    //pPlayer.sendSystemMessage(Component.literal("\n! Good !"));
 
                     if(effect_selector == 1)
                     {
@@ -122,6 +122,8 @@ public class DiceSword extends SwordItem {
                     else if(effect_selector == 3)
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, effect_dur, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, effect_dur, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, effect_dur, 0));
                         pPlayer.sendSystemMessage(Component.literal("\nYou grow §3gills §ffor a bit.\n"));
                     }
                     else if(effect_selector == 4)
@@ -132,16 +134,17 @@ public class DiceSword extends SwordItem {
                     else
                     {
                         pPlayer.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, effect_dur, 0));
+                        pPlayer.addEffect(new MobEffectInstance(MobEffects.JUMP, effect_dur, 2));
                         pPlayer.sendSystemMessage(Component.literal("\nYou feel lighter!\n"));
                     }
 
                     break;
 
                 case 10,9,8,7,6: //unfortunate tier
-                    //slowness - blindness
+
                     effect_selector = dice.nextInt(3) +1;
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.ZOMBIE_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    //pPlayer.sendSystemMessage(Component.literal("\n! Unfortunate !"));
+
 
                     if(effect_selector == 1)
                     {
@@ -161,10 +164,9 @@ public class DiceSword extends SwordItem {
                     break;
 
                 case 5,4,3,2:
-                    //poison - hunger - nausea - unlucky
+
                     effect_selector = dice.nextInt(4) + 1;
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), SoundEvents.CAT_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    //pPlayer.sendSystemMessage(Component.literal("\n! GREAT MISFORTUNE !"));
 
                     if(effect_selector == 1)
                     {
@@ -200,20 +202,18 @@ public class DiceSword extends SwordItem {
                             ? EquipmentSlot.MAINHAND
                             : EquipmentSlot.OFFHAND));
                     //critical failure
-                    //adds wither effect - weakness - mining fatigue)20 ticks = 1 sec
-                    // pPlayer.sendSystemMessage(Component.literal("\n! FUMBLE !"));
                     pPlayer.sendSystemMessage(Component.literal("\n§6§lReturn the slab, or suffer my curse..\n"));
                     pLevel.playSound(null,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(), ModSounds.FAIL_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, effect_dur, 9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, effect_dur, 9));
-
+                    pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, effect_dur, 4));
+                    // You should really return the slab
 
                     break;
 
                 default:
                     break;
             }
-            // pPlayer.sendSystemMessage(Component.literal("@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()@#$%^&*()\n"));
 
         }
         return super.use(pLevel, pPlayer, pUsedHand);

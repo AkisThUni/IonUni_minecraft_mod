@@ -122,7 +122,8 @@ public class ModItems {
         public static final RegistryObject<Item> CRISP_CLOVER = ITEMS.register("crisp_clover",
                 ()-> new Item(new Item.Properties().food(ModFoodProperties.CRISP_CLOVER)));
 
-        // ==========================Clover Armour: Armour that gives you a permanent luck effect, but trades off your defense
+        // ====================================================================
+        // Clover Armour: Armour that gives you a permanent luck effect, but trades off your defense. Do not tell the feds but it is busted as shit
         public static final RegistryObject<Item> CLOVER_HAT = ITEMS.register("clover_hat",
                 () -> new ModArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
                         new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));
