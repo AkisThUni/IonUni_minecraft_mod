@@ -4,7 +4,9 @@ package com.kapetanbananoflouda.minecraftmod.items.custom;
 
 import com.kapetanbananoflouda.minecraftmod.ModSounds;
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -70,8 +72,15 @@ public class DicePick extends PickaxeItem implements toolFunctions{
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand)
     {
 
+
+
         if (!pLevel.isClientSide)
         { // Only run on server
+
+            //particles
+            //everyone on the server can see this with send
+            ( (ServerLevel) pLevel).sendParticles(ParticleTypes.FLAME,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
+
             if(pPlayer.hasEffect(MobEffects.LUCK))//gotta add super miner effect
             {
 
@@ -111,6 +120,12 @@ public class DicePick extends PickaxeItem implements toolFunctions{
             {
                 //300 ticks is  15 sec
                 case 1:
+                    //everyone on the server can see this with send
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() , pPlayer.getZ() , 15, 0, 0, 0,1);
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() + 2, pPlayer.getZ() , 15, 0, 0, 0,1);
+
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.SOUL_FIRE_FLAME,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
                     //big damage
                     stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
                             ? EquipmentSlot.MAINHAND
@@ -151,6 +166,9 @@ public class DicePick extends PickaxeItem implements toolFunctions{
                     break;
 
                 case 20:
+                    //particles
+                    //everyone on the server can see this with send
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.DRAGON_BREATH,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, effect_dur, 2));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,effect_dur,roll));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,9));

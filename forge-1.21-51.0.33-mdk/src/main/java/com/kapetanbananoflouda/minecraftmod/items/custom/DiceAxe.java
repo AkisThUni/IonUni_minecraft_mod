@@ -2,7 +2,9 @@ package com.kapetanbananoflouda.minecraftmod.items.custom;
 
 import com.kapetanbananoflouda.minecraftmod.ModSounds;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -64,7 +66,13 @@ public class DiceAxe  extends AxeItem implements toolFunctions
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         // insert here
         if (!pLevel.isClientSide) {
+
             //run only on server , to avoid double use (learned from experience)
+
+            //particles
+            //everyone on the server can see this with send
+            ( (ServerLevel) pLevel).sendParticles(ParticleTypes.FLAME,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
+
             if(pPlayer.hasEffect(MobEffects.LUCK)) //same as pickaxe scales with luck amplifier
             {
 
@@ -98,6 +106,13 @@ public class DiceAxe  extends AxeItem implements toolFunctions
             switch (roll) {
                 //300 ticks is  15 sec
                 case 1:
+                    //particles
+                    //everyone on the server can see this with send
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() , pPlayer.getZ() , 15, 0, 0, 0,1);
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.ANGRY_VILLAGER,pPlayer.getX() , pPlayer.getY() + 2, pPlayer.getZ() , 15, 0, 0, 0,1);
+
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.SOUL_FIRE_FLAME,pPlayer.getX() , pPlayer.getY() + 1, pPlayer.getZ() , 15, 0, 0, 0,1);
                     //big damage
                     stack.hurtAndBreak(300, pPlayer, (pUsedHand == InteractionHand.MAIN_HAND
                             ? EquipmentSlot.MAINHAND
@@ -144,6 +159,10 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     break;
 
                 case 20:
+                    //particles
+                    //everyone on the server can see this with send
+                    ( (ServerLevel) pLevel).sendParticles(ParticleTypes.DRAGON_BREATH,pPlayer.getX(), pPlayer.getY() + 1, pPlayer.getZ(), 15, 0, 0, 0,1);
+
                     pLevel.playSound(null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), ModSounds.SUCCESS_ROLL.get(), SoundSource.PLAYERS, 10.0F, 1.0F);
 
                     //should make a custom function to break all wooden logs in a radius
