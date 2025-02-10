@@ -170,7 +170,7 @@ public class DiceAxe  extends AxeItem implements toolFunctions
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.LUCK,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,effect_dur,9));
                     pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,effect_dur,2));
-                    //pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
+                    pPlayer.getCooldowns().removeCooldown(this); // Remove cooldown from this item for mining
                     pPlayer.sendSystemMessage(Component.literal("\n §4§o§lJACKPOT - The §6NUMBERS §egrace §e§oyou with the power of §bRight Click!"));
 
                     //To repair the item, reduce the damage value on the ItemStack.
