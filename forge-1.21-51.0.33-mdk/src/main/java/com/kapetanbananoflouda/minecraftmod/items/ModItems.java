@@ -126,7 +126,8 @@ public class ModItems {
         // Clover Armour: Armour that gives you a permanent luck effect, but trades off your defense. Do not tell the feds but it is busted as shit
         public static final RegistryObject<Item> CLOVER_HAT = ITEMS.register("clover_hat",
                 () -> new ModArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
-                        new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));
+                        new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10)))
+        );
 
         public static final RegistryObject<Item> CLOVER_CHESTPLATE = ITEMS.register("clover_chestplate",
                 () -> new ArmorItem(ModArmorMaterials.CLOVER_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
