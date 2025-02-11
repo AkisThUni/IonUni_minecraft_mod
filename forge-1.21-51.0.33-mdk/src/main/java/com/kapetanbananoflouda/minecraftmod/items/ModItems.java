@@ -45,7 +45,7 @@ public class ModItems {
             .nutrition(1) // Hunger restored (6 = 3 meat drumsticks)
             .saturationModifier(0.6F) // Saturation modifier (how long the hunger lasts)
             .alwaysEdible() // Allows eating even if the player is full
-            .effect(new MobEffectInstance(MobEffects.POISON, 150, 3),1f)
+            .effect(new MobEffectInstance(MobEffects.LEVITATION, 150, 3),1f)
             .build())) );
 
 

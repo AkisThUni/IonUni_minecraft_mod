@@ -57,7 +57,7 @@ public class DiceSword extends SwordItem {
 
 
             pPlayer.sendSystemMessage(Component.literal("§k---------------------------------------------\n"));
-            pPlayer.sendSystemMessage(Component.literal("You used the Dice blade!--Your lucky number is: "+ roll ));
+            pPlayer.sendSystemMessage(Component.literal("You used the Dice blade!--Your lucky number is: §e"+ roll ));
 
 
             //should probably make an effect selector/ printing function cause this is getting big

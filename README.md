@@ -20,7 +20,7 @@ MOD items listed below:
                           If the roll is above fifteen the luck effect is once again applied to the player and for a small time window, the 'use' action
                           will break every log block in a specific area, the size of which scales with the amplifier of the luck effect.
   
-  Clover Armor Set: When all pieces are equiped the luc keffect is indefinitely applied to the player thus enabling the use of the area of effect abilities with the axe and pickaxe respectively.
+  Clover Armor Set: When all pieces are equiped the luck effect is indefinitely applied to the player thus enabling the use of the area of effect abilities with the axe and pickaxe respectively.
 
 
 The mod was made for minecraft 1.21 using the forge 1.21-51.0.33 mdk.
