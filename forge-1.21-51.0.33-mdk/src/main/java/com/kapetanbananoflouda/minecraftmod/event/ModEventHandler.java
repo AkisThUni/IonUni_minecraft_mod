@@ -36,7 +36,7 @@ public class ModEventHandler {
             // Drop at the grass block's position
             Random dice = new Random();
             int roll = dice.nextInt(100) + 1;
-            if(roll <= 25) //25% chance to drop
+            if(roll <= 10) //25% chance to drop
             {//drop
                 block.popResource(serverLevel, pos, drop);
 
