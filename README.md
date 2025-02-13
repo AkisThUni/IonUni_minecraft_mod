@@ -20,3 +20,5 @@ This project was made under the challenge «Engineer Your Adventure: Minecraft»
 
 - Special thanks to KaupenJoe for having the probably only coherent (as the time of writing this) tutorials available on 1.21.x modding.
 
+## Lisence
+This work is licensed under CC BY-NC 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc/4.0/
