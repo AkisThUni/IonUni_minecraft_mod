@@ -1,4 +1,6 @@
 # Numerology 
+![image](https://github.com/user-attachments/assets/27214629-3fd9-4d08-902b-a87967beb377)
+
 
 Luck! A rather unique effect that has existed since 1.9. Not exactly obtainable in survival. But what if that were to change? That is what this mod intends to do with its own little "twist"
 
