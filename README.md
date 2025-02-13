@@ -1,31 +1,24 @@
-Read this summary of the Numerology minecraft mod.
+# Numerology 
 
-The main theme of the mod revolves around luck.
-Roll the dice and see what happens. 
-Will the numbers benefit you or condemn you?
-Only RNGesus knows.
+Luck! A rather unique effect that has existed since 1.9. Not exactly obtainable in survival. But what if that were to change? That is what this mod intends to do with its own little "twist"
 
-MOD items listed below:
-  clover: Found by breaking grass. Can be used to craft the rest of the mod items.
-  
-  crisp clover: Made by smelting clover. Can be used to make luck potions.
-  
-  Holy blade of RNGesus: Dice Tier Sword Item. On 'use', rolls a 20 sided die and a relative to the roll( good/bad) effect is applied to the player.
-  
-  Cloverpillar Excavator: Dice Tier Pickaxe Item. On 'use', rolls a 20 sided die with a relatively good or bad effect applied to the player, depending on the roll.
-                          If the roll is above fifteen the luck effect is applied to the player and for a short time window, the 'use' action will dig out 
-                          a small or large area. The aformentioned area scales with the luck effect amplifier.
-  
-  Numerological Treecapitator: Dice Tier Axe Item. On 'use', rolls a 20 sided die and a corresponding effect is applied to the player.
-                          If the roll is above fifteen the luck effect is once again applied to the player and for a small time window, the 'use' action
-                          will break every log block in a specific area, the size of which scales with the amplifier of the luck effect.
-  
-  Clover Armor Set: When all pieces are equiped the luck effect is indefinitely applied to the player thus enabling the use of the area of effect abilities with the axe and pickaxe respectively.
+Fun Fact: Numerology is the ancient occult, mysticism and esotericism (magic) between events and numbers.
 
+## Unique mechanics and additions.
 
-The mod was made for minecraft 1.21 using the forge 1.21-51.0.33 mdk.
+Numerology revolves around making obtainable with easy means the luck and bad luck status effect. One of the core gameplay mechanics we added is giving a unique right click ability as an upgrade to some tools, allowing them to roll a "d20" die (a 20-sided virtual dice) and give positive or negative effects. 
 
-!IMPORTANT!
-The finished mod is in the krikos-pharmacy-revival branch because we messed the others up.
+You can watch a showcase video about the mod alongside for any questions you may have here: [placeholder]
 
-Video Link Here:/placeholder/
+## Credits
+
+This project was made under the challenge «Engineer Your Adventure: Minecraft», under the Department of Informatics in the Ionian University. This project would have not been realised if we were not challenged to do it.
+
+- Name + Core Idea credits: Kapetanbananoflouda 
+- Textures were made by: Krico
+- The project was co-written by Krico and Kapetanbananoflouda
+
+- Special thanks to KaupenJoe for having the probably only coherent (as the time of writing this) tutorials available on 1.21.x modding.
+
+## Lisence
+This work is licensed under CC BY-NC 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc/4.0/
